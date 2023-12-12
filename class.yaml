@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Name</title>
+  <style>
+    /* CSS styles for your webpage */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    header {
+      background-color: 43;
+      color: red;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    nav {
+      background-color: #555;
+      padding: 10px;
+      text-align: center;
+    }
+    
+    nav a {
+      color: red;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    
+    section {
+      padding: 20px;
+      text-align: center;
+    }
+    
+    footer {
+      background-color: 43;
+      color: red;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Raghav coaching</h1>
+  </header>
+  
+  <nav>
+    <a href="sakinaka andheri">Home</a>
+    <a href="#indias no.1 class">About</a>
+    <a href="your future my responsibility">Services</a>
+    <a href="9060909015">Contact</a>
+  </nav>
+  
+  <section id="home">
+    <h2>Welcome to Raghav classes</h2>
+    <p>Maths,physics,chemistry ke class liye jayenge bahut hi kam daam me aur pass ki 100 % garanty bilkul my equity school ki tarah.</p>
+  </section>
+  
+  <section id="b.ed">
+    <h2>mujhe 10 saal ka teaching ka anubhav hai </h2>
+    <p>aapke bache ko math me 100 me se 101 marks ayega.</p>
+  </section>
+  
+  <section id="services">
+    <h2>Our Services</h2>
+    <ul>
+      <li>math 1</li>
+      <li>physics 2</li>
+      <li>biology 3</li>
+    </ul>
+  </section>
+  
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: info@example.com</p>
+    <p>Phone: 9060909015</p>
+  </section>
+  
+  <footer>
+    <p>&copy; 2023 Company Name. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,148 @@
+The Terraform configuration must be valid before initialization so that
+Terraform can determine which modules and providers need to be installed.
+╷
+│ Error: Unsupported argument
+│
+│   on main.tf line 1:
+│    1: resource_group_name  = azurerm_resource_group.example.name
+│
+│ An argument named "resource_group_name" is not expected here.
+╵
+
+╷
+│ Error: Unsupported argument
+│
+│   on main.tf line 2:
+│    2:   network_interface_ids = [azurerm_network_interface.example[count.index].id]
+│
+│ An argument named "network_interface_ids" is not expected here.
+╵
+
+╷
+│ Error: Unsupported argument
+│
+│   on main.tf line 3:
+│    3:   vm_size              = "Standard_DS1_v2"
+│
+│ An argument named "vm_size" is not expected here.
+╵
+
+╷
+│ Error: Unsupported block type
+│
+│   on main.tf line 5:
+│    5:   storage_image_reference {
+│
+│ Blocks of type "storage_image_reference" are not expected here.
+╵
+
+╷
+│ Error: Unsupported block type
+│
+│   on main.tf line 12:
+│   12:   storage_os_disk {
+│
+│ Blocks of type "storage_os_disk" are not expected here.
+╵
+
+╷
+│ Error: Invalid multi-line string
+│
+│   on main.tf line 16, in storage_os_disk:
+│   16:     managed_disk_type = "Standard_LR
+│   17: ~
+│
+│ Quoted strings may not be split over multiple lines. To produce a multi-line string, either use the
+│ \n escape to represent a newline character or use the "heredoc" multi-line template syntax.
+╵
+
+╷
+│ Error: Unterminated template string
+│
+│   on main.tf line 16, in storage_os_disk:
+│   16:     managed_disk_type = "Standard_LR
+│   17: ~
+│
+│ No closing marker was found for the string.
+╵
+
+╷
+│ Error: Invalid multi-line string
+│
+│   on main.tf line 17, in storage_os_disk:
+│   17: ~
+│
+│ Quoted strings may not be split over multiple lines. To produce a multi-line string, either use the
+│ \n escape to represent a newline character or use the "heredoc" multi-line template syntax.
+╵
+
+root@mylinuxvm:~/vm# vi main.tf
+root@mylinuxvm:~/vm# terraform validate
+╷
+│ Error: Unsupported argument
+│
+│   on main.tf line 1:
+│    1: resource_group_name  = azurerm_resource_group.example.name
+│
+│ An argument named "resource_group_name" is not expected here.
+╵
+╷
+│ Error: Unsupported argument
+│
+│   on main.tf line 2:
+│    2:   network_interface_ids = [azurerm_network_interface.example[count.index].id]
+│
+│ An argument named "network_interface_ids" is not expected here.
+╵
+╷
+│ Error: Unsupported argument
+│
+│   on main.tf line 3:
+│    3:   vm_size              = "Standard_DS1_v2"
+│
+│ An argument named "vm_size" is not expected here.
+╵
+╷
+│ Error: Unsupported block type
+│
+│   on main.tf line 5:
+│    5:   storage_image_reference {
+│
+│ Blocks of type "storage_image_reference" are not expected here.
+╵
+╷
+│ Error: Unsupported block type
+│
+│   on main.tf line 12:
+│   12:   storage_os_disk {
+│
+│ Blocks of type "storage_os_disk" are not expected here.
+╵
+╷
+│ Error: Invalid multi-line string
+│
+│   on main.tf line 16, in storage_os_disk:
+│   16:     managed_disk_type = "Standard_LR
+│   17: ~
+│
+│ Quoted strings may not be split over multiple lines. To produce a multi-line string, either use the
+│ \n escape to represent a newline character or use the "heredoc" multi-line template syntax.
+╵
+╷
+│ Error: Unterminated template string
+│
+│   on main.tf line 16, in storage_os_disk:
+│   16:     managed_disk_type = "Standard_LR
+│   17: ~
+│
+│ No closing marker was found for the string.
+╵
+╷
+│ Error: Invalid multi-line string
+│
+│   on main.tf line 17, in storage_os_disk:
+│   17: ~
+│
+│ Quoted strings may not be split over multiple lines. To produce a multi-line string, either use the
+│ \n escape to represent a newline character or use the "heredoc" multi-line template syntax.
+╵

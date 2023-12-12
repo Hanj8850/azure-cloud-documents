@@ -1,0 +1,65 @@
+# Company Website Configuration
+
+# Website Metadata
+title: My Company
+description: Welcome to My Company's official website.
+author: John Doe
+email: info@mycompany.com
+phone: +1 123-456-7890
+
+# Navigation Links
+navigation:
+  - label: Home
+    link: /
+  - label: About
+    link: /about
+  - label: Services
+    link: /services
+  - label: Contact
+    link: /contact
+
+# Pages
+pages:
+  - title: Home
+    url: /
+    content: |
+      ## Welcome to My Company
+
+      We provide innovative solutions to meet your business needs.
+
+  - title: About
+    url: /about
+    content: |
+      ## About Us
+
+      My Company is a leading provider of cutting-edge products and services.
+
+  - title: Services
+    url: /services
+    content: |
+      ## Our Services
+
+      - Service 1
+      - Service 2
+      - Service 3
+
+  - title: Contact
+    url: /contact
+    content: |
+      ## Contact Us
+
+      Reach out to us via email or phone for any inquiries or questions.
+
+      - Email: [info@mycompany.com](mailto:info@mycompany.com)
+      - Phone: [+1 123-456-7890](tel:+11234567890)
+
+# Footer Information
+footer:
+  copyright: "© 2023 My Company. All rights reserved."
+  social_links:
+    - icon: twitter
+      link: https://twitter.com/mycompany
+    - icon: facebook
+      link: https://facebook.com/mycompany
+    - icon: linkedin
+      link: https://linkedin.com/company/mycompany

@@ -1,0 +1,11 @@
+1) kubectl get node
+2) Kubectl get pdb -A
+3) Kubectl get pdb coredns-pdb -n kube-system -o yaml > coredns-pdb.pdb
+
+4) az aks get-upgrades --resource-group myaks -- name myaks --output table
+
+5) kubectl get cm -n kube-system
+
+7) Kubectl get cm cluster-autoscale-status -n kube-system -o yaml
+
+8) Az aks upgrade --resource-group myaks --name myAKS --kubernetes-version 1.24.10

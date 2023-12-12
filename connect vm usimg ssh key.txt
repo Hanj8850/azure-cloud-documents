@@ -1,0 +1,8 @@
+connect another vm using existing vm via ssh key
+
+
+> create a file like vi test-key.pem   and paste there ssh key which you have downloaded during creation of vm and save the file
+
+>run commond chmod 400 test-key.pem
+
+>run ssh -i test-key.pem ubuntu@172.31.44.45

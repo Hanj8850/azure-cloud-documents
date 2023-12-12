@@ -1,0 +1,43 @@
+>connect linuxe machine
+
+>az login
+
+>sudo apt update
+>sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+>sudo apt update
+sudo apt install -y docker-ce
+
+>sudo systemctl start docker
+sudo systemctl enable docker
+
+>docker --version
+
+>push nginx image from docker to acr
+      docker tag nginx <acr_name>.azurecr.io/nginx:<tag>   # First, you need to tag the nginx Docker image with the name of your ACR. Open a terminal and run the following command, replacing <acr_name> with your ACR name and <tag> with a tag of your choice (e.g., "latest")
+
+>az login
+az acr login --name <acr_name>
+
+>docker push <acr_name>.azurecr.io/nginx:<tag>
+
+>az acr repository list --name <acr_name> --output table
+
+
+>list docker images 
+    docker images
+
+>pull image into docker 
+        docker pull
+
+>docker pull <acr_name>.azurecr.io/<image_name>:<tag>
+
+>docker login
+
+>docker tag <acr_name>.azurecr.io/<image_name>:<tag> <dockerhub_username>/<dockerhub_repo>:<tag>
+
+>docker push <dockerhub_username>/<dockerhub_repo>:<tag>
+
+

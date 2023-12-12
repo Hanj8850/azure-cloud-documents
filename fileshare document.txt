@@ -1,0 +1,14 @@
+azcopy copy "C:\Users\Prakash W\Downloads\azcopy_windows_amd64_10.17.0" "https://qwe12.blob.core.windows.net/mycontainer" --recursive=true
+
+
+fileshare
+azcopy copy "C:\Users\Prakash W\Downloads\azcopy_windows_amd64_10.17.0" "https://qwe12.file.core.windows.net/fileshare/asd/?sv=2021-12-02&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2023-03-12T16:33:11Z&st=2023-03-12T08:33:11Z&spr=https,http&sig=Npn12LgSkuzTopW3qOPl6Y45y1pkG3ePyEZ8JQ3bMqQ%3D" --recursive=true --preserve-smb-permissions=true
+
+
+
+
+
+
+
+container 
+azcopy copy "C:\nginx-1.16.1" "https://poi12.blob.core.windows.net/container?sp=racw&st=2023-03-14T19:36:11Z&se=2023-03-15T03:36:11Z&sv=2021-12-02&sr=c&sig=0Pq%2Fl5KzOy4ea0KJNmRJX2R6V4sTKIVnAUqWzz2V1Cw%3D" --recursive=true
