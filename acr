@@ -1,0 +1,21 @@
+ACR   
+
+
+https://learn.microsoft.com/en-us/azure/aks/cluster-container-registry-integration?tabs=azure-cli
+
+# Attach using acr-name
+az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-name>
+
+# Attach using acr-resource-id
+az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
+
+ 
+az aks get-credentials -g myResourceGroup -n myAKSCluster
+
+
+DOCKER LOGIN=docker login acr server id of  access key
+             username +pass
+
+ az acr login --n accrcrcr --expose-token
+
+az aks get-credentials -g myrj -n myakks(myrj is rg name)
