@@ -1,0 +1,16 @@
+provider "azurerm" {
+  features {}
+}
+
+resource "azurerm_resource_group" "storage" {
+  name     = "myrrj"
+  location = "West US"
+}
+
+resource "azurerm_storage_account" "storage" {
+  name                     = "myyyyystorage"
+  resource_group_name      = azurerm_resource_group.storage.name
+  location                 = "West US"
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+}

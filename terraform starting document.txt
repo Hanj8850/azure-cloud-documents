@@ -1,0 +1,35 @@
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+>az login
+
+
+
+
+
+
+>az account set --subscription 1ae0e781-1ad6-46eb-b51d-52dc095ad9a0
+
+>az role assignment create --role "Contributor" --assignee (CLIENT ID) --scope "/subscriptions/<subscription_id>"
+
+>az ad sp credential list --id (CLIENT ID) --query "[?endDate=='']|[0].value" --output tsv
+
+
+>export ARM_client_ID="36bc003d-dddd-4028-a28a-c0eca3590c56"
+export ARM_client_secret="8719e8ed-4652-47f8-999a-c586f114f0e0"
+export ARM_SUBSCRIPTION_ID="1ae0e781-1ad6-46eb-b51d-52dc095ad9a0"
+export ARM_TENANT_ID="e77151a5-ccca-4f94-91c3-8899653de95d"
+
+#https://developer.hashicorp.com/terraform/downloads   website to install terraform
+
+
+>wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install terraform
+
+>terraform version
+
+>mkdir rg
+>cd rg
+>vi main.tf
+>and pase the files
+

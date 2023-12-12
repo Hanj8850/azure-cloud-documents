@@ -1,0 +1,49 @@
+
+########################################################
+make  a empty file and paste it 
+exa vi file1.tf
+
+provider "azurerm" {
+  features {}
+  subscription_id = "1ae0e781-1ad6-46eb-b51d-52dc095ad9a0"
+  client_id       = "fc3b41ba-757e-4e9a-85f5-b00f8b96b0d0"
+  client_secret   = "q3r8Q~.0BkXvd0~XGm.nwY7wHy3ox-iVofjkgbBs"        #terraform apply -var "client_secret=your_client_secret_value" use this commond to find out these values.
+  tenant_id       = "e77151a5-ccca-4f94-91c3-8899653de95d"
+}
+
+>terraform init
+>terraform apply
+
+
+> for resource group and storageaccount create  save this file to empty folder 
+
+
+provider "azurerm" {
+  features {}
+}
+
+resource "azurerm_resource_group" "myrg_group" {
+  name     = "myrg"
+  location = "West US"
+}
+
+resource "azurerm_storage_account" "mystorage_acc" {
+  name                     = "storageacc"
+  resource_group_name      = azurerm_resource_group.myrg_group.name
+  location                 = "West US"
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+  access_tier              = "Hot"
+  enable_https_traffic_only = true
+}
+
+output "storage_account_id" {
+  value = azurerm_storage_account.mystorage_acc.id
+}
+
+
+>terraform init
+>terraform plan
+>terraform apply
+
+

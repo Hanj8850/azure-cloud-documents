@@ -1,0 +1,16 @@
+>Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'; rm .\AzureCLI.msi
+
+>az login
+
+>az account set --subscription "35akss-subscription-id"
+
+>az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<SUBSCRIPTION_ID>"
+
+>$ $Env:ARM_CLIENT_ID = "<APPID_VALUE>"
+$ $Env:ARM_CLIENT_SECRET = "<PASSWORD_VALUE>"
+$ $Env:ARM_SUBSCRIPTION_ID = "<SUBSCRIPTION_ID>"
+$ $Env:ARM_TENANT_ID = "<TENANT_VALUE>"
+
+>wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install terraform

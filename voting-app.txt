@@ -1,0 +1,17 @@
+apiVersion: policy/v1
+
+kind: PodDisruptionBudget
+
+metadata:
+
+  name: azure-vote-back
+
+spec:
+
+  minAvailable: 2
+
+  selector:
+
+    matchLabels:
+
+      app: voting-app

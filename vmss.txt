@@ -1,0 +1,12 @@
+>download vmss private key to local
+
+>make a empty file and paste private key in it
+empty folder like test-key.pem
+
+>go to vmss--instances---select vm----cilck on connect---copy second commond by replace private key path(empty file path) and save
+>run 4th commond replace private key to private key path
+
+>error=  port 22  connection timeout 
+>solution =
+make inbound connection from perticular vm and allow to port 22
+

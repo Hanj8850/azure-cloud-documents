@@ -1,0 +1,74 @@
+provider "azurerm" {
+  features {}
+}
+
+resource "azurerm_resource_group" "multi-vm" {
+  name     = "myrrj"
+  location = "West US"
+}
+
+resource "azurerm_virtual_network" "multi-vm" {
+  name                = "my-virtual-network"
+  resource_group_name = azurerm_resource_group.multi-vm.name
+  location            = "westus"
+  address_space       = ["10.0.0.0/16"]
+}
+
+resource "azurerm_subnet" "multi-vm" {
+  name                 = "my-subnet"
+  resource_group_name  = azurerm_resource_group.multi-vm.name
+  virtual_network_name = azurerm_virtual_network.multi-vm.name
+  address_prefixes     = ["10.0.0.0/24"]
+}
+
+resource "azurerm_network_interface" "multi-vm" {
+  count               = 30
+  name                = "my-nic-${count.index}"
+  resource_group_name = azurerm_resource_group.multi-vm.name
+  location            = azurerm_resource_group.multi-vm.location
+
+  ip_configuration {
+    name                          = "my-ipconfig"
+    subnet_id                     = azurerm_subnet.multi-vm.id
+    private_ip_address_allocation = "Dynamic"
+  }
+}
+
+resource "azurerm_virtual_machine" "multi-vm" {
+  count               = 30
+  name                = "my-vm-${count.index}"
+  location            = azurerm_resource_group.multi-vm.location
+  resource_group_name = azurerm_resource_group.multi-vm.name
+  network_interface_ids = [azurerm_network_interface.multi-vm[count.index].id]
+
+  vm_size           = "Standard_DS1_v2"
+  delete_os_disk_on_termination = true
+
+  storage_image_reference {
+    publisher = "Canonical"
+    offer     = "UbuntuServer"
+    sku       = "18.04-LTS"
+    version   = "latest"
+  }
+
+  storage_os_disk {
+    name              = "osdisk-${count.index}"
+    caching           = "ReadWrite"
+    create_option     = "FromImage"
+    managed_disk_type = "Standard_LRS"
+  }
+
+  os_profile {
+    computer_name  = "my-vm-${count.index}"
+    admin_username = "adminuser"
+    admin_password = "Admin1234567890"
+  }
+
+  os_profile_linux_config {
+    disable_password_authentication = false
+  }
+}
+
+
+terraform import azurerm_resource_group.multi-vm /subscriptions/<subscription_id>/resourceGroups/myrrj    #commond  for  create multi  resources in  same resource group
+
