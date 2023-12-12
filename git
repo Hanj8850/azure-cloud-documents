@@ -1,0 +1,19 @@
+>login vm
+>make directory using mkdir
+>change directory
+>git init
+>git config --global user.name "name"
+>git config --globsl user.email "mail"
+>make a file  cat >filename  enter  , type what you want to write in the file , press control+d
+
+>git add .
+>git commit -m (filename)
+>git remote add -m origin (url of github)
+>git branch -M main
+>git push -u origin main
+
+>git log (you will get commit id)
+
+>git show (commit id)   (to check file data)
+
+
