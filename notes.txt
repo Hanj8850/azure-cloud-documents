@@ -1,0 +1,76 @@
+object storage= data stores unsystematically
+block storage= data stores systematically
+
+master node
+
+ controller manager (having all kinds of manager)
+API (intermediator between controller  manager and etcd)
+etcd (stores all the information of cluster nodes)
+scheduler(schedule pod as per etcd information)
+
+
+controll manager= it collect all the information of cluster nodes and provides it to etcd. controll manager only can directly communicate with pod.
+API= take request from  controller manager  and send it to etcd
+etcd= check the information of clusternode and send it to scheduler.
+scheduler= schedule pods on clusternode.
+
+slave node
+
+kubelet= check the  pod is up or not
+kubeproxy= manage networking of pod like inbound and outbound traffic on pod
+container runtime= keep the pod  up continuously
+
+azure ad
+ 
+manage identity and governance in  azure.
+manage internal and external access
+create multiple user
+manage user data 
+monitoring user data
+manage access of user
+integration  of external and internal application.
+provides sso
+
+identity - an identity is an username and password
+account  -  an identity data associated with it 
+azure ad account - account provided by azure ad 
+subscription - used for billling of resources
+
+vm   - vm is an operating system physical not virtual
+vnet - vnet is a logical firewall.vnet is a fundamental building block for private network.it provides isolation to subnet.
+       if resources are in vnet isolation then noone can access it until and unless you allow them.
+subnet - logical grouping of vnet is called subnet.subnet takes ip from  vnet.
+
+storage account - it contains structured and unstructured data.
+structured - table and queue
+table      - structured format data
+queue      - used for technical messaging,
+             maximum size of queue is 500 TB
+             maximum size of message storage of queue is 64 kb
+blob  -   it contains structured and unstructured data
+fileshare - it contains files data of azure 
+
+AKS CLUSTER - it is managed container orchestraion  service provided by microsoft  azure
+              it allows you to scale deploy and manage containerized applicaions using kubernetes.
+ACR         - it is managed container registry service provided by microsoft azure. 
+            - it keep your storage private and secured. 
+            - manage the image it integrate with other azure services like aks, devops.
+            - integrate with docker and pull the image from docker directly into your acr repository.
+
+pod      - pod is smallest unit of deployment in aks
+
+ingress  - ingress is a path router of servises.
+           it manages division of traffic. it is the path divider.
+ 
+
+
+
+                  
+
+
+
+
+           
+
+
+

@@ -1,0 +1,88 @@
+https://learn.microsoft.com/en-us/azure/aks/csi-secrets-store-driver
+
+enable csi drivers:
+
+az aks enable-addons --addons azure-keyvault-secrets-provider --name myAKSCluster --resource-group myResourceGroup
+
+attach key vault:
+
+az keyvault secret set --vault-name <keyvault-name> -n ExampleSecret --value MyAKSExampleSecret
+
+Use a user-assigned managed identity:
+
+az aks show -g <resource-group> -n <cluster-name> --query addonProfiles.azureKeyvaultSecretsProvider.identity.clientId -o tsv
+
+you will get spid here
+
+az keyvault set-policy -n <keyvault-name> --secret-permissions get --spn <identity-client-id> (use the above spid here)
+
+###################SecretProviderClass###################
+
+
+# This is a SecretProviderClass example using user-assigned identity to access your key vault
+apiVersion: secrets-store.csi.x-k8s.io/v1
+kind: SecretProviderClass
+metadata:
+  name: azure-kvname-user-msi
+spec:
+  provider: azure
+  parameters:
+    usePodIdentity: "false"
+    useVMManagedIdentity: "true"          # Set to true for using managed identity
+    userAssignedIdentityID: <client-id>   # Set the clientID of the user-assigned managed identity to use
+    keyvaultName: <key-vault-name>        # Set to the name of your key vault
+    cloudName: ""                         # [OPTIONAL for Azure] if not provided, the Azure environment defaults to AzurePublicCloud
+    objects:  |
+      array:
+        - |
+          objectName: secret1             # secret name which need to attach
+          objectType: secret              # object types: secret, key, or cert
+          objectVersion: ""               # [OPTIONAL] object versions, default to latest if empty
+    tenantId: <tenant-id>                 # The tenant ID of the key vault (tenant id of the AD )
+	
+	
+###################
+
+kubectl create -f SecretProviderClass.yaml
+
+
+###################create a pod to access and mount the key vault###################
+
+# This is a sample pod definition for using SecretProviderClass and the user-assigned identity to access your key vault
+kind: Pod
+apiVersion: v1
+metadata:
+  name: busybox-secrets-store-inline-user-msi
+spec:
+  containers:
+    - name: busybox
+      image: k8s.gcr.io/e2e-test-images/busybox:1.29-1
+      command:
+        - "/bin/sleep"
+        - "10000"
+      volumeMounts:
+      - name: secrets-store01-inline
+        mountPath: "/mnt/secrets-store"
+        readOnly: true
+  volumes:
+    - name: secrets-store01-inline
+      csi:
+        driver: secrets-store.csi.k8s.io
+        readOnly: true
+        volumeAttributes:
+          secretProviderClass: "azure-kvname-user-msi"
+		  
+##################################################
+
+kubectl apply -f pod.yaml
+
+it will create one pod in default namepsace 
+
+## show secrets held in secrets-store
+kubectl exec busybox-secrets-store-inline -- ls /mnt/secrets-store/
+
+## print a test secret 'ExampleSecret' held in secrets-store
+kubectl exec busybox-secrets-store-inline -- cat /mnt/secrets-store/ExampleSecret(secret name)
+
+
+

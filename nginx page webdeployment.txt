@@ -1,0 +1,3 @@
+>apt-get install -y nginx
+>cd /var/www/html
+>vi index.nginx-debian.html edit

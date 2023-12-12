@@ -1,0 +1,1 @@
+az aks nodepool add --resource-group myAKS --cluster-name myaks --name mynodepool --node-count 1 --vnet-subnet-id <YOUR SUBNET RESOURCE_ID>/subnets/<subnet name>

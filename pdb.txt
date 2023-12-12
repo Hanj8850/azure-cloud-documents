@@ -1,0 +1,20 @@
+apiVersion: policy/v1
+
+kind: PodDisruptionBudget
+
+metadata:
+
+  name: azure-vote-back
+
+spec:
+
+  minAvailable: 2
+
+  selector:
+
+    matchLabels:
+
+      app: azure-vote-front
+
+
+https://kubernetes.io/docs/tasks/run-application/configure-pdb/

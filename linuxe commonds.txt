@@ -1,0 +1,17 @@
+important commonds for linuxe 
+
+mkdir                         make directory
+rmdir                         remove directory
+rm -rf file name               remove file 
+ls                             list 
+cat                            show output
+mv                             move
+cp                             copy
+mv                             rename
+cd                             change directory
+cd ..                          previous directory
+vi                             make file/edit file
+head                           show top 10 lines of file
+tail                           show last 10 lines of file
+pwd                            current working directory
+ 

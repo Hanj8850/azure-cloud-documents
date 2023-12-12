@@ -1,0 +1,30 @@
+archieve file
+
+tar -cf (archive file name anyname you want.tar) (your filename)
+
+extract archieve file 
+
+> tar -xf filename which is given above.tar
+
+
+zip file 
+
+zip (zip file name anyname you want.zip) your filename which you want to zip
+
+gzip filename
+
+compress all the file with same extension if extension is txt
+
+gzip *.txt
+
+chown commond
+
+chown (username) filename
+
+use kill commmond
+
+to use kill you want process id 
+use top commond to find process id
+then you can use kill (process id)
+
+

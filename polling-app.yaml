@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: polling-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: polling-app
+  template:
+    metadata:
+      labels:
+        app: polling-app
+    spec:
+      containers:
+      - name: polling-app
+        image: myacr111.azurecr.io/polling-app:latest
+        ports:
+        - containerPort: 80
