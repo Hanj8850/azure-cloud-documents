@@ -1,0 +1,1 @@
+ARM = this is the tool that gives ability to automatically deploy resources on azure.

@@ -1,0 +1,12 @@
+https://myyysttorage.file.core.windows.net/?sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2023-06-04T15:25:37Z&st=2023-06-04T07:25:37Z&spr=https,http&sig=QkBE3Rs0LUt3kYmXvJ95bzRGUXJcbPplpUdLHsrZ2Pk%3D
+
+
+C:\Users\j.r\.azcopy\plans
+
+azcopy copy "C:\Users\j.r\.azcopy\plans" "https://myyysttorage.file.core.windows.net/myfile/mydir/?sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2023-06-04T15:25:37Z&st=2023-06-04T07:25:37Z&spr=https,http&sig=QkBE3Rs0LUt3kYmXvJ95bzRGUXJcbPplpUdLHsrZ2Pk%3D
+" --recursive=true --preserve-smb-permissions=true
+
+azcopy copy "C:\Users\j.r\.azcopy\plans" "https://myyysttorage.file.core.windows.net/myfile/mydir/?sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2023-06-04T15:25:37Z&st=2023-06-04T07:25:37Z&spr=https,http&sig=QkBE3Rs0LUt3kYmXvJ95bzRGUXJcbPplpUdLHsrZ2Pk%3D" --recursive=true --preserve-smb-permissions=true --from-toL
+
+azcopy copy "C:\Users\j.r\.azcopy\plans" "https://myyysttorage.file.core.windows.net/myfile/mydir/?sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2023-06-04T15:25:37Z&st=2023-06-04T07:25:37Z&spr=https,http&sig=QkBE3Rs0LUt3kYmXvJ95bzRGUXJcbPplpUdLHsrZ2Pk%3D" --recursive=true --preserve-smb-permissions=true --from-to=Localfile
+
