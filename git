@@ -1,0 +1,46 @@
+>login vm
+>make directory using mkdir
+>change directory
+>git init
+>git config --global user.name "name"
+>git config --globsl user.email "mail"
+>make a file  cat >filename  enter  , type what you want to write in the file , press control+d
+
+>git add .
+>git commit -m (filename)
+>git remote add -m origin (url of github)
+>git branch -M main
+>git push -u origin main
+
+>git log (you will get commit id)
+
+>git show (commit id)   (to check file data)
+git errors 
+
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'git@github.com:Hanj8850/azure-cloud-documents.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+
+
+
+>git fetch origin
+>git merge origin/main
+
+root@MUMBAIVM:~/git# git merge origin/main
+fatal: refusing to merge unrelated histories
+root@MUMBAIVM:~/git#
+
+
+>git merge --allow-unrelated-histories origin/main
+>git push -u origin main
+
+
+
+
+
+
