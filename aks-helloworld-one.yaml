@@ -27,7 +27,13 @@ metadata:
   name: aks-helloworld-one  
 spec:
   type: ClusterIP
+  
   ports:
   - port: 80
   selector:
     app: aks-helloworld-one
+
+
+    kubectl apply -f (filename)
+
+    kubectl get services -o wide   (to check public ip address
