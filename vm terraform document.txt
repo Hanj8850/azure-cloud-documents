@@ -73,9 +73,3 @@ resource "azurerm_virtual_machine" "example" {
     disable_password_authentication = false
   }
 }
-
-
-terraform plan -out=tfplan  #run commond to save the plan for exact apply the plan
-
-terraform apply tfplan
-	
